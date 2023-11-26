@@ -1,4 +1,3 @@
-
 import 'package:eventos/minhascores.dart';
 import 'package:flutter/material.dart';
 import './evento_card.dart';
@@ -69,10 +68,9 @@ class _EventosHomePageState extends State<EventosHomePage> {
       online: false,
     ),
     Evento(
-      imagem: 'images/vanina.jpg',
-      nome: 'APRENDA A ROMPER SEU LIMITE CORPORAL',
-      descricao:
-          'Transforme-se em estinto superior com as aulas da Suprema Senhora da Luz: Vanina!',
+      imagem: 'images/artificial.jpg',
+      nome: 'INTELIGÊNCIA ARTIFICIAL E O NOVO CONTEXTO DA CULTURA DIGITAL',
+      descricao: 'Conheça e aprenda conceitos da INTELIGÊNCIA ARTIFICIAL ',
       tipo: 'Aula',
       data: DateTime(2023, 11, 25, 20, 0),
       local: 'Youtube',
@@ -220,41 +218,43 @@ class _EventosHomePageState extends State<EventosHomePage> {
                 : Column(
                     children: [
                       Expanded(
-  child: PageView.builder(
-    controller: pageController,
-    itemCount: eventos
-        .where((evento) =>
-            filtroTipo == 'Todos' || filtroTipo == evento.tipo)
-        .length,
-    itemBuilder: (context, index) {
-      List<Evento> eventosFiltrados = eventos
-          .where((evento) =>
-              filtroTipo == 'Todos' || filtroTipo == evento.tipo)
-          .toList();
-      if (index < eventosFiltrados.length) {
-        Evento evento = eventosFiltrados[index];
-        return EventoCard(
-          imagem: evento.imagem,
-          nome: evento.nome,
-          tipo: evento.tipo,
-          data: evento.data,
-          local: evento.local,
-          onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) =>
-                    DetalhesEventoPage(evento: evento),
-              ),
-            );
-          },
-        );
-      } else {
-        return Container(); // Retornar uma visualização vazia se não houver evento correspondente
-      }
-    },
-  ),
-),
+                        child: PageView.builder(
+                          controller: pageController,
+                          itemCount: eventos
+                              .where((evento) =>
+                                  filtroTipo == 'Todos' ||
+                                  filtroTipo == evento.tipo)
+                              .length,
+                          itemBuilder: (context, index) {
+                            List<Evento> eventosFiltrados = eventos
+                                .where((evento) =>
+                                    filtroTipo == 'Todos' ||
+                                    filtroTipo == evento.tipo)
+                                .toList();
+                            if (index < eventosFiltrados.length) {
+                              Evento evento = eventosFiltrados[index];
+                              return EventoCard(
+                                imagem: evento.imagem,
+                                nome: evento.nome,
+                                tipo: evento.tipo,
+                                data: evento.data,
+                                local: evento.local,
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) =>
+                                          DetalhesEventoPage(evento: evento),
+                                    ),
+                                  );
+                                },
+                              );
+                            } else {
+                              return Container(); // Retornar uma visualização vazia se não houver evento correspondente
+                            }
+                          },
+                        ),
+                      ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
@@ -365,8 +365,8 @@ class DetalhesEventoPage extends StatelessWidget {
             children: [
               Image.asset(
                 'assets/${evento.imagem}',
-                width: 500,
-                height: 500,
+                width: 470,
+                height: 470,
                 fit: BoxFit.cover,
               ),
               SizedBox(height: 16),
