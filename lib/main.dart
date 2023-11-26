@@ -108,13 +108,10 @@ class _EventosHomePageState extends State<EventosHomePage> {
   ];
 
   String filtroTipo = 'Todos';
-  bool exibirListView =
-      true; // Adicionando uma flag para alternar entre ListView e PageView
-  PageController pageController =
-      PageController(); // Controlador para a PageView
+  bool exibirListView = true;
+  PageController pageController = PageController();
 
-  bool mostrarTextoDesenvolvedores =
-      false; //Para mostrar o nome dos desenvolvedores
+  bool mostrarTextoDesenvolvedores = false;
 
   @override
   Widget build(BuildContext context) {
@@ -250,7 +247,7 @@ class _EventosHomePageState extends State<EventosHomePage> {
                                 },
                               );
                             } else {
-                              return Container(); // Retornar uma visualização vazia se não houver evento correspondente
+                              return Container();
                             }
                           },
                         ),

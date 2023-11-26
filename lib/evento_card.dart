@@ -1,3 +1,4 @@
+import 'package:eventos/minhascores.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
 
@@ -21,6 +22,7 @@ class EventoCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      color: MinhasCores.CinzaClaro,
       elevation: 5,
       margin: EdgeInsets.all(8),
       child: InkWell(
